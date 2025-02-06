@@ -21,7 +21,21 @@ Salesperson.destroy_all
 
 # 2. insert 1-2 rows in salespeople table.
 
+new_salesperson = Salesperson.new
+new_salesperson["first_name"] = "Ben"
+new_salesperson["last_name"] = "Block"
+new_salesperson["email"] = "ben@gmail.com"
+new_salesperson.save
+
+new_salesperson = Salesperson.new
+new_salesperson["first_name"] = "Brian"
+new_salesperson["last_name"] = "Eng"
+new_salesperson["email"] = "brian@gmail.com"
+new_salesperson.save
+
 # 3. write code to display how many salespeople rows are in the database
+
+puts "There are #{Salesperson.all.count} salespeople"
 
 # ---------------------------------
 # Salespeople: 2
@@ -30,6 +44,23 @@ Salesperson.destroy_all
 
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
+
+# MY VERSION:
+# names = Salesperson.find_by({"first_name" => "Ben"})
+# puts "#{names["first_name"]} #{names["last_name"]}"
+
+# names = Salesperson.find_by({"first_name" => "Brian"})
+# puts "#{names["first_name"]} #{names["last_name"]}"
+
+people = Salesperson.all
+
+for giraffe in people
+    #second row in people
+    first_name = giraffe["first_name"]
+    last_name = giraffe["last_name"]
+    name  = "#{first_name} #{last_name}"
+    puts name
+end
 
 # ---------------------------------
 # Salespeople: 2
